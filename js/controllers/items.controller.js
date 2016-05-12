@@ -1,7 +1,8 @@
 app.controller('ItemsController', ItemsController);
 
 function ItemsController($scope, itemsFactory) {
-  vm = this;
+  $scope.vm = {};
 
-  $scope.vm.items = itemsFactory.getItems(); 
+  console.log(itemsFactory.getItems());
+  $scope.vm.items = itemsFactory.getItems();
 }
