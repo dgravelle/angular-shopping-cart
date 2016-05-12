@@ -1,0 +1,23 @@
+<div ng-controller="ItemsController">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="search">Search</label>
+            <input id="searchVal" type="text" ng-model="items.searchVal">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="categoryFilter">Filter</label>
+            <select name="categoryFilter" id="categoryFilter">
+              <!-- <option value="cateogory.title"
+                ng-repeat="category in categories">{{ category.title }}</option> -->
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
