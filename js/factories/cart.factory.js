@@ -3,8 +3,14 @@
 app.factory('cartFactory', function() {
   let cart = [];
   return {
+    getCart: function() {
+      return cart;
+    },
     getTotal: function() {
       return cart.length;
+    },
+    getSubTotal: function() {
+
     },
     addItem: function(item, quantity) {
       let item2Add = {

@@ -1,0 +1,28 @@
+<div ng-controller="CartController">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Product</td>
+        <td>Quantity</td>
+        <td>Sub-total</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in vm.cart">
+        <td>
+          <img ng-src="{{ item.item.imageUrl }}" alt="">
+          <br>
+          {{ item.item.caffeineScale }}
+          <br>
+          {{ item.item.ingredients }}
+          <br>
+          {{ item.item.rating }}
+        </td>
+        <td>{{ item.quantity }}</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

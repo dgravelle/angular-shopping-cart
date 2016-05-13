@@ -14,5 +14,4 @@ function ItemsController($scope, itemsFactory, cartFactory) {
     cartFactory.addItem(item, quantity);
     $scope.vm.cartTotal();
   }
-
 }

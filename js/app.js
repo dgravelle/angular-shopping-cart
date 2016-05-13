@@ -6,4 +6,8 @@ app.config(function($routeProvider) {
       templateUrl: 'partials/items-table.html',
       controller: 'ItemsController'
     })
+    .when('/cart', {
+      templateUrl: 'partials/cart.html',
+      controller: 'CartController'
+    })
 })
