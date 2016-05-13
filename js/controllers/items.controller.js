@@ -7,7 +7,7 @@ function ItemsController($scope, itemsFactory, cartFactory) {
 
   $scope.vm.cartTotal = function() {
     console.log('checking');
-    return cartFactory.getTotal();
+    return cartFactory.getLength();
   };
 
   $scope.vm.addToCart = function(item, quantity) {

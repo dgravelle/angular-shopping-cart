@@ -6,11 +6,18 @@ app.factory('cartFactory', function() {
     getCart: function() {
       return cart;
     },
-    getTotal: function() {
+    getLength: function() {
       return cart.length;
     },
-    getSubTotal: function() {
+    getCartTotal: function() {
+      let total = 0;
 
+      cart.forEach(function(item) {
+        console.log(item);
+        total += item.item.price * item.quantity;
+      });
+      console.log(total);
+      return total;
     },
     addItem: function(item, quantity) {
       let item2Add = {
@@ -19,8 +26,9 @@ app.factory('cartFactory', function() {
       }
       cart.push(item2Add);
     },
-    removeItem: function() {
-
+    removeItem: function(index) {
+      console.log(index);
+      cart.splice(index, 1);
     },
     updateItemQuantity: function() {
 

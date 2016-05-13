@@ -1,4 +1,12 @@
 <div ng-controller="CartController">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1>Your shopping cart</h1>
+    </div>
+    <div class="col-sm-4">
+      Total: {{ vm.getCartTotal() / 100 | currency }}
+    </div>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -19,9 +27,13 @@
           <br>
           {{ item.item.rating }}
         </td>
-        <td>{{ item.quantity }}</td>
-        <td></td>
-        <td></td>
+        <td>
+          <input type="number" id="quantity" ng-model="item.quantity" min="0">
+        </td>
+        <td>{{ (item.quantity * item.item.price)/100 | currency }}</td>
+        <td>
+          <button class="btn btn-danger" ng-click="vm.removeItem($index)">x</button>
+        </td>
       </tr>
     </tbody>
   </table>
