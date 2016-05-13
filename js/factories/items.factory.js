@@ -130,7 +130,16 @@ app.factory('itemsFactory', function() {
       return items;
     },
     getCategories: function() {
-
+      var categories = [];
+      items.map(function(item) {
+        for (var i = 0; i < item.categories.length; i++) {
+          if (!categories.includes(item.categories[i])) {
+            categories.push(item.categories[i]);
+          }
+        }
+      });
+      console.log(categories);
+      return categories;
     }
   }
 });

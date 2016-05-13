@@ -6,15 +6,16 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label for="search">Search</label>
-            <input id="searchVal" type="text" ng-model="items.searchVal">
+            <input id="searchVal" type="text" name="searchValue" ng-model="searchValue">
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group">
             <label for="categoryFilter">Filter</label>
-            <select name="categoryFilter" id="categoryFilter">
-              <!-- <option value="cateogory.title"
-                ng-repeat="category in categories">{{ category.title }}</option> -->
+            <select name="categoryFilter" id="categoryFilter" ng-model="categoryFilter">
+              <option value="">None</option>
+              <option value="{{category}}"
+                ng-repeat="category in itemsFactory.getCategories()">{{ category }}</option>
             </select>
           </div>
         </div>
@@ -36,13 +37,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in vm.items">
+          <tr ng-repeat="item in vm.items | filter: searchValue | filter: categoryFilter">
             <td>
               <img alt="" ng-src="{{item.imageUrl}}" />
             </td>
             <td>
-              {{ item.name }}
-              {{ item.ingredients }}
+              <h3>{{ item.name }}</h3>
+              <br>
+              <strong>Ingredients:</strong> {{ item.ingredients }}
+              <br>
+              <strong>Categories:</strong> {{ item.categories.join(', ') }}
             </td>
             <td>
               <label for="quantity">Quantity: </label>
