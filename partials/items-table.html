@@ -18,6 +18,9 @@
             </select>
           </div>
         </div>
+        <div class="col-sm-4">
+          <button class="btn btn-success pull-right" ng-href="/cart">Checkout: {{ vm.cartTotal() }}</button>
+        </div>
       </div>
     </div>
   </div>
@@ -42,7 +45,15 @@
               {{ item.ingredients }}
             </td>
             <td>
-              <button class="btn btn-primary" ng-click="addToCart()">Add to Cart</button>
+              <label for="quantity">Quantity: </label>
+              <select name="quantity" id="quantity" ng-model="item.quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <button class="btn btn-primary" ng-click="vm.addToCart(item, item.quantity)">Add to Cart</button>
             </td>
           </tr>
         </tbody>

@@ -124,10 +124,13 @@ app.factory('itemsFactory', function() {
         "categories": ["spring", "warm","winter"]
     }
   ];
-  
+
   return {
     getItems: function() {
       return items;
+    },
+    getCategories: function() {
+
     }
   }
 });
