@@ -1,8 +1,13 @@
-'use strict'
+(function () {
+  'use strict'
 
-app.factory('itemsFactory', function() {
-  let items = [
-    {
+  angular
+    .module('app')
+    .factory('itemsFactory', itemsFactory);
+
+  function itemsFactory() {
+    let items = [
+      {
         "_id": "55c8ee82152165d244b98300",
         "name": "Bayard stew",
         "ingredients": "concentrated gluten, jewelry, dill, beetle nut, toast",
@@ -13,9 +18,9 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32664_d?$cimg$",
         "__v": 0,
         "categories": [ "dark", "cold"]
-    },
+      },
 
-    {
+      {
         "_id": "55c8ee82152165d244b98301",
         "name": "Incompactness syrup",
         "ingredients": "fennel, nutmeg leaves, parsley, cream of 'cream of cream', blarney",
@@ -26,8 +31,8 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32303_d?$cimg$",
         "__v": 0,
         "categories": ["awesome"]
-    },
-    {
+      },
+      {
         "_id": "55c8ee82152165d244b98302",
         "name": "Flexner white tea",
         "ingredients": "hot sauce, iron, beetle nut, fresco, blarney, raw mashed potato",
@@ -38,8 +43,8 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
         "__v": 0,
         "categories": ["cold"]
-    },
-    {
+      },
+      {
         "_id": "55c8ee82152165d244b98303",
         "name": "Pressor leaf",
         "ingredients": "purina chow, flavorings, pepper, acorns, quality tallow, old sock, bay leaf",
@@ -50,8 +55,8 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
         "__v": 0,
         "categories": ["dry", "hot", "awesome"]
-    },
-    {
+      },
+      {
         "_id": "55c8ee82152165d244b98304",
         "name": "Flexner veggie tea",
         "ingredients": "cream of tartar, eggplant, cake, deer antler",
@@ -62,8 +67,8 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32621_d?$cimg$",
         "__v": 0,
         "categories": ["summer"]
-    },
-    {
+      },
+      {
         "_id": "55c8ee82152165d244b98305",
         "name": "Topflighter malt",
         "ingredients": "botox, toast, cream of 'cream of 'cream of cream'', kitchen scraps, beef, aligator tongue, lawn clippings",
@@ -74,8 +79,8 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31359_d?$cimg$",
         "__v": 0,
         "categories": ["dry","lucid","warm"]
-    },
-    {
+      },
+      {
         "_id": "55c8ee82152165d244b98306",
         "name": "Cooking mix",
         "ingredients": "flavorings, roasted mushrooms, toast, tumeric",
@@ -86,8 +91,8 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32303_d?$cimg$",
         "__v": 0,
         "categories": ["summer"]
-    },
-    {
+      },
+      {
         "_id": "55c8ee82152165d244b98307",
         "name": "Cooking stew",
         "ingredients": "eggplant",
@@ -98,8 +103,8 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
         "__v": 0,
         "categories": ["dry","winter","lucid"]
-    },
-    {
+      },
+      {
         "_id": "55c8ee82152165d244b98308",
         "name": "Prevenient herb tea",
         "ingredients": "cream of tartar, cream of cream, kitchen scraps, flavorings",
@@ -110,8 +115,8 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32174_d?$cimg$",
         "__v": 0,
         "categories": ["lucid","hot"]
-    },
-    {
+      },
+      {
         "_id": "55c8ee82152165d244b98309",
         "name": "Angular mix",
         "ingredients": "hot sauce, lawn clippings, fennel, parsley, quinine",
@@ -122,24 +127,24 @@ app.factory('itemsFactory', function() {
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32621_d?$cimg$",
         "__v": 0,
         "categories": ["spring", "warm","winter"]
-    }
-  ];
+      }
+    ];
 
-  return {
-    getItems: function() {
-      return items;
-    },
-    getCategories: function() {
-      var categories = [];
-      items.map(function(item) {
-        for (var i = 0; i < item.categories.length; i++) {
-          if (!categories.includes(item.categories[i])) {
-            categories.push(item.categories[i]);
+    return {
+      getItems: function() {
+        return items;
+      },
+      getCategories: function() {
+        var categories = [];
+        items.map(function(item) {
+          for (var i = 0; i < item.categories.length; i++) {
+            if (!categories.includes(item.categories[i])) {
+              categories.push(item.categories[i]);
+            }
           }
-        }
-      });
-      console.log(categories);
-      return categories;
+        });
+        return categories;
+      }
     }
   }
-});
+})();

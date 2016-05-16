@@ -1,17 +1,23 @@
-app.controller('CartController', CartController);
+(function () {
+  'use strict'
 
-function CartController($scope, cartFactory) {
-  $scope.vm = {};
+  angular
+    .module('app')
+    .controller('CartController', CartController);
 
-  $scope.vm.getCartTotal = function() {
-    return cartFactory.getCartTotal();
-  };
+  function CartController($scope, cartFactory) {
+    $scope.vm = {};
 
-  $scope.vm.cart = (function() {
-    return cartFactory.getCart();
-  })();
+    $scope.vm.getCartTotal = function() {
+      return cartFactory.getCartTotal();
+    };
 
-  $scope.vm.removeItem = function(item) {
-    return cartFactory.removeItem(item);
+    $scope.vm.cart = (function() {
+      return cartFactory.getCart();
+    })();
+
+    $scope.vm.removeItem = function(item) {
+      return cartFactory.removeItem(item);
+    }
   }
-}
+})();
