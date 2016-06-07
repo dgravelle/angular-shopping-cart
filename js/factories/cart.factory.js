@@ -31,7 +31,6 @@
         if (cart.length > 0) {
           let exists = false;
           for (let i = 0; i < cart.length; i++) {
-            console.log(cart[i].item._id === item._id);
             if (cart[i].item._id === item._id) {
               cart[i].quantity += Number(quantity);
               exists = true
@@ -44,7 +43,6 @@
         else {
           cart.push(item2Add);
         }
-        console.log(cart);
       },
       removeItem: function(index) {
         cart.splice(index, 1);
