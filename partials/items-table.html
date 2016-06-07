@@ -37,7 +37,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in vm.items | filter: searchValue" ng-show="item.categories.includes(categoryFilter)">
+          <tr ng-repeat="item in vm.items | filter: searchValue" ng-show="categoryFilter === true || item.categories.includes(categoryFilter)">
             <td>
               <img alt="" ng-src="{{item.imageUrl}}" />
             </td>
