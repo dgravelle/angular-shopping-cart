@@ -18,10 +18,9 @@
         let total = 0;
 
         cart.forEach(function(item) {
-          console.log(item);
           total += item.item.price * item.quantity;
         });
-        console.log(total);
+
         return total;
       },
       addItem: function(item, quantity) {
@@ -29,14 +28,26 @@
           item: item,
           quantity: Number(quantity)
         }
-        cart.push(item2Add);
+        if (cart.length > 0) {
+          let exists = false;
+          for (let i = 0; i < cart.length; i++) {
+            console.log(cart[i].item._id === item._id);
+            if (cart[i].item._id === item._id) {
+              cart[i].quantity += Number(quantity);
+              exists = true
+            }
+          }
+          if (!exists) {
+            cart.push(item2Add);
+          }
+        }
+        else {
+          cart.push(item2Add);
+        }
+        console.log(cart);
       },
       removeItem: function(index) {
-        console.log(index);
         cart.splice(index, 1);
-      },
-      updateItemQuantity: function() {
-
       }
     }
   }

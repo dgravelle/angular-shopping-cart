@@ -20,12 +20,11 @@
       <tr ng-repeat="item in vm.cart">
         <td>
           <img ng-src="{{ item.item.imageUrl }}" alt="">
+          <h3>{{ item.item.name }}</h3>
           <br>
-          {{ item.item.caffeineScale }}
+          <strong>Ingredients:</strong> {{ item.item.ingredients }}
           <br>
-          {{ item.item.ingredients }}
-          <br>
-          {{ item.item.rating }}
+          <strong>Categories:</strong> {{ item.item.categories.join(', ') }}
         </td>
         <td>
           <input type="number" id="quantity" ng-model="item.quantity" min="0">

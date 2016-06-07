@@ -8,11 +8,10 @@
   function ItemsController($scope, itemsFactory, cartFactory) {
     $scope.vm = {};
     $scope.itemsFactory = itemsFactory;
-    console.log($scope.itemsFactory);
+
     $scope.vm.items = itemsFactory.getItems();
 
     $scope.vm.cartTotal = function() {
-      console.log('checking');
       return cartFactory.getLength();
     };
 
