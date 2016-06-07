@@ -12,8 +12,8 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label for="categoryFilter">Filter</label>
-            <select name="categoryFilter" id="categoryFilter" ng-model="categoryFilter">
-              <option value="">None</option>
+            <select name="categoryFilter" id="categoryFilter" ng-model="categoryFilter" ng-init="categoryFilter = true">
+              <option value="true" ng-selected="true" selected>None</option>
               <option value="{{category}}"
                 ng-repeat="category in itemsFactory.getCategories()">{{ category }}</option>
             </select>
@@ -37,11 +37,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in vm.items | filter: searchValue | filter: categoryFilter">
+          <tr ng-repeat="item in vm.items | filter: searchValue" ng-show="item.categories.includes(categoryFilter)">
             <td>
               <img alt="" ng-src="{{item.imageUrl}}" />
             </td>
             <td>
+              <!-- {{ categoryFilter }} -->
               <h3>{{ item.name }}</h3>
               <br>
               <strong>Ingredients:</strong> {{ item.ingredients }}
