@@ -50,6 +50,11 @@
               <strong>Categories:</strong> {{ item.categories.join(', ') }}
             </td>
             <td>
+              <div class="caffeine-meter">
+                <strong>Caffeine</strong>
+                <p>mg/serving: {{ item.caffeineScale }}</p>
+                <caffeine-meter caffeine-mg="item.caffeineScale"></caffeine-meter>
+              </div>
               <label for="quantity">Quantity: </label>
               <select name="quantity" id="quantity" ng-model="item.quantity">
                 <option value="1">1</option>
