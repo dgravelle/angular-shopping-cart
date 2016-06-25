@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="css/gauge.css">
   <link rel="stylesheet" href="css/custom.css">
 
-
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
   <script src="js/app.js"></script>
@@ -22,10 +21,16 @@
   <script src="js/factories/items.factory.js"></script>
   <script src="js/factories/cart.factory.js"></script>
   <script src="js/directives/caffeine-meter.directive.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="node_modules/bootstrap-material-design/dist/js/material.min.js"></script>
+  <script type="text/javascript">
+    $.material.init()
+  </script>
 </head>
 <body ng-app="app">
   <nav class="navbar navbar-warning ngTea-navbar" ng-controller="Nav">
-    <div class="container-fluid">
+    <div class="container">
       <div class="navbar-header">
         <a href="#/" class="navbar-brand">Angular Tea</a>
       </div>

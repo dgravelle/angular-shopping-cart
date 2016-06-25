@@ -3,21 +3,27 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
-            <label for="search">Search</label>
-            <input id="searchVal" type="text" name="searchValue" ng-model="searchValue">
+              <label class="col-sm-3 label-control ngTea--label" for="search">Search</label>
+            <div class="col-sm-9">
+              <input class="form-control" id="searchVal" type="text" name="searchValue" ng-model="searchValue">
+            </div>
           </div>
         </div>
         <div class="col-sm-4">
-          <div class="form-group">
-            <label for="categoryFilter">Filter</label>
-            <select name="categoryFilter" id="categoryFilter" ng-model="categoryFilter" ng-init="categoryFilter = true">
-              <option value="true" ng-selected="true" selected>None</option>
-              <option value="{{category}}"
-                ng-repeat="category in itemsFactory.getCategories()">{{ category }}</option>
-            </select>
-          </div>
+          <form class="form-horizontal">
+            <div class="form-group label-floating">
+              <label class="col-sm-4 label-control ngTea--label" for="categoryFilter">Filter</label>
+              <div class="col-sm-8">
+                <select class="form-control " name="categoryFilter" id="categoryFilter" ng-model="categoryFilter" ng-init="categoryFilter = true">
+                  <option value="true" ng-selected="true" selected>None</option>
+                  <option value="{{category}}"
+                    ng-repeat="category in itemsFactory.getCategories()">{{ category }}</option>
+                </select>
+              </div>
+            </div>
+          </form>
         </div>
         <div class="col-sm-4">
           <!-- <a class="btn btn-success pull-right" ng-href="/#/cart">Checkout: {{ vm.cartTotal() }}</a> -->
@@ -28,7 +34,7 @@
   <!-- Items Table -->
   <div class="row">
     <div class="col-sm-12">
-      <table class="table table-striped">
+      <table class="table table-striped ngTea--table">
         <thead>
           <tr>
             <td>Tea</td>
@@ -55,15 +61,25 @@
                 <p>mg/serving: {{ item.caffeineScale }}</p>
                 <caffeine-meter caffeine-mg="item.caffeineScale"></caffeine-meter>
               </div>
-              <label for="quantity">Quantity: </label>
-              <select name="quantity" id="quantity" ng-model="item.quantity">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <button class="btn btn-info btn-raised" ng-click="vm.addToCart(item, item.quantity)">Add to Cart</button>
+              <form>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-sm-4">
+                      <label class="label-control ngTea--label" for="quantity">Quantity: </label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-control" name="quantity" id="quantity" ng-model="item.quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                    </div>
+                </div>
+                <button class="btn btn-info btn-block btn-raised" ng-click="vm.addToCart(item, item.quantity)">Add to Cart</button>
+              </form>
             </td>
           </tr>
         </tbody>

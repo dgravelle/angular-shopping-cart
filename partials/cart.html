@@ -27,7 +27,7 @@
           <strong>Categories:</strong> {{ item.item.categories.join(', ') }}
         </td>
         <td>
-          <input type="number" id="quantity" ng-model="item.quantity" min="0">
+          <input class="form-control" type="number" id="quantity" ng-model="item.quantity" min="0">
         </td>
         <td>{{ (item.quantity * item.item.price)/100 | currency }}</td>
         <td>
