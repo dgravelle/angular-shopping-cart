@@ -17,6 +17,7 @@
 
     $scope.vm.addToCart = function(item, quantity) {
       cartFactory.addItem(item, quantity);
+      item.quantity = 0;
       $scope.vm.cartTotal();
     }
   }
